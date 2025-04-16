@@ -1,14 +1,25 @@
 package week5;
+import java.util.Scanner;
 
-// Kelas Main (program utama)
 public class Palindrome {
     public static void main(String[] args) {
-        TextGame game1 = new TextGame();
-        game1.displayResult("Malam");
+        boolean playing = true;
+        TextGame game = new TextGame();
+        Scanner scanner = new Scanner(System.in);
+        String kata;
 
-        System.out.println();
+        while (playing) { 
+            System.out.print("Masukkan Kata: ");
+            kata = scanner.nextLine();
+            game.displayResult(kata);
+            System.out.println();
 
-        TextGame game2 = new FancyTextGame();
-        game2.displayResult("Kata");
-    }
+            System.out.print("Main lagi? [y/n]: ");
+            String jawaban = scanner.nextLine();
+            if (jawaban.equalsIgnoreCase("n")) {
+                playing = false;
+                System.out.println("Terima kasih telah bermain!");
+            }
+        }
+    }
 }
